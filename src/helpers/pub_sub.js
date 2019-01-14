@@ -10,7 +10,7 @@ const PubSub = {
 // 13. create a custom event takes data we want to send
     const event = new CustomEvent(channel, {
       detail: payload
-    });
+    })
 // 14. dispatches the event
     document.dispatchEvent(event);
   },

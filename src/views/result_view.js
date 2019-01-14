@@ -1,5 +1,3 @@
-
-
 const PubSub = require('../helpers/pub_sub.js')
 
 // 8. set up results view
@@ -13,9 +11,10 @@ const ResultView = function () {
 // 22. this is the binder for results view
 ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('PrimeChecker:result-calculated', (event) => {
-    const primeNumber = event.detail;
-    this.displayResult(primeNumber);
-  })
+    const resultMessage = event.detail;
+    console.log('payload received in ResultView:', resultMessage);
+    this.displayResult(resultMessage);
+  });
   // 23. go back to app.js..
 };
 
@@ -28,15 +27,24 @@ ResultView.prototype.bindEvents = function () {
 ResultView.prototype.displayResult = function (result) { // pass in result
 // 10 .get the DOM element id for result from html - "result"
   const resultElement = document.querySelector('#result');
-// think this needs a conditional
-    if (numberIsPrime == true) {
-      return resultElement.textContent = `Yes! #{result} is a prime number.`;
-    }
-    else {
-  return resultElement.textContent = `Nope! #{result} is not a prime number.`;
-    }
+  // resultElement.textContent = result;
+  if (result === true) {
+    return resultElement.textContent = `Yes! is a prime number.`
+  }
+  else {
+    return resultElement.textContent = `Nope! is not a prime number.`
+  }
+
 };
 
 
-
 module.exports = ResultView;
+
+// think this needs a conditional
+  //   if (???) {
+  //     return resultElement.textContent = `Yes! #{result} is a prime number.`;
+  //   }
+  //   else {
+  // return resultElement.textContent = `Nope! #{result} is not a prime number.`;
+  //   }
+// };
