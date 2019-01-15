@@ -24,17 +24,17 @@ PrimeChecker.prototype.bindEvents = function () {
 // and checks for the prime number (supplied)
 PrimeChecker.prototype.numberIsPrime = function (number) {
   if (number <= 1) {
-    return false;
-    // return 'Not a prime number.';
+    // return false;
+    return 'Not a prime number.';
   }
   for (let i = 2; i < number; i++) {
     if (number % i === 0) {
-    return false;
-    // return 'Not a prime number.';
+    // return false;
+    return 'Not a prime number.';
    }
   }
-    return true;
-    // return 'Yes! It is a prime number.';
+    // return true;
+    return 'Yes! It is a prime number.';
 };
 
 // 8. got to results view - set up file

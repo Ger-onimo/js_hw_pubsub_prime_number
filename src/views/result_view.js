@@ -27,13 +27,13 @@ ResultView.prototype.bindEvents = function () {
 ResultView.prototype.displayResult = function (result) { // pass in result
 // 10 .get the DOM element id for result from html - "result"
   const resultElement = document.querySelector('#result');
-  // resultElement.textContent = result;
-  if (result === true) {
-    return resultElement.textContent = `Yes! is a prime number.`
-  }
-  else {
-    return resultElement.textContent = `Nope! is not a prime number.`
-  }
+  resultElement.textContent = result;
+  // if (result === true) {
+  //   return resultElement.textContent = `Yes! is a prime number.`
+  // }
+  // else {
+  //   return resultElement.textContent = `Nope! is not a prime number.`
+  // }
 
 };
 
